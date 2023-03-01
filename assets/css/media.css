@@ -1,0 +1,17 @@
+@media only screen and (max-width:1024px)and (min-width:300px) {
+  
+    .hero-section-image{
+        max-width: 100%;
+        margin-right: -40px;
+        
+        position:relative;
+        left:0px;
+        bottom:0px;
+    }
+    .hero-image-container{
+      
+        position:relative;
+    }
+    
+}
+

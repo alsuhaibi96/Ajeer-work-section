@@ -1,0 +1,81 @@
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Tajawal:wght@700&display=swap');
+
+:root{
+    --primary-Color:#6d84ad;
+    --secondary-Color:#12192c;
+    --third-color:#ccd4e1;
+}
+
+body{
+    background-color:var(--primary-Color) ;
+    font-family: 'Cairo', sans-serif;
+font-family: 'Tajawal', sans-serif;
+overflow-x: hidden;
+}
+/*Start Style of Hero Section*/
+#heroSection{
+    background-image: linear-gradient(to right,#99a8c7 , #6d84ad);
+}
+
+.work-services-title{
+    font-size: 2.5rem;
+}
+.services-description{
+
+}
+.regular-btn{
+    padding: 10px;
+    width: 10rem;
+    text-align: center  ;
+    text-decoration:none ;
+    color: white;
+    border: 0px;
+  
+
+}
+.bg-secondary-color{
+    background-color: var(--secondary-Color);
+}
+#heroSection{
+    height:fit-content;
+}
+.hero-image-container{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+.hero-section-image{
+  
+    position:absolute;
+    left:0px;
+    bottom:80px;
+} 
+.work-services-title{
+    max-width: 300px;
+}
+.work-section-container{
+padding-bottom: 2rem;
+}
+.border-1-px{
+    border: 1px solid white;
+}
+
+/*End Style of Hero Section*/
+
+
+
+/*
+Start of Services  We Offer style
+*/
+.services-we-offer,.services-inner-container{
+height: 100vh;
+}
+.bg-container-color{
+background-color: var(--third-color);
+}
+
+
+/*
+end of Services  We Offer style
+*/
