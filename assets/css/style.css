@@ -1,63 +1,77 @@
 /*Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Tajawal:wght@700&display=swap');
 
-:root{
-    --primary-Color:#6d84ad;
-    --secondary-Color:#12192c;
-    --third-color:#ccd4e1;
+:root {
+    --primary-Color: #6d84ad;
+    --secondary-Color: #12192c;
+    --third-color: #ccd4e1;
 }
 
-body{
-    background-color:var(--primary-Color) ;
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--primary-Color);
     font-family: 'Cairo', sans-serif;
-font-family: 'Tajawal', sans-serif;
-overflow-x: hidden;
-}
-/*Start Style of Hero Section*/
-#heroSection{
-    background-image: linear-gradient(to right,#99a8c7 , #6d84ad);
+    font-family: 'Tajawal', sans-serif;
+    overflow-x: hidden;
 }
 
-.work-services-title{
+/*Start Style of Hero Section*/
+#heroSection {
+    background-image: linear-gradient(to right, #99a8c7, #6d84ad);
+}
+
+.work-services-title {
     font-size: 2.5rem;
 }
-.services-description{
 
-}
-.regular-btn{
+.services-description {}
+
+.regular-btn {
     padding: 10px;
     width: 10rem;
-    text-align: center  ;
-    text-decoration:none ;
+    text-align: center;
+    text-decoration: none;
     color: white;
     border: 0px;
-  
+
 
 }
-.bg-secondary-color{
+
+.bg-secondary-color {
     background-color: var(--secondary-Color);
 }
-#heroSection{
-    height:fit-content;
+
+#heroSection {
+    height: fit-content;
 }
-.hero-image-container{
-    width:100%;
-    height:100%;
-    position:absolute;
+
+.hero-image-container {
+    width: 90%;
+    height: 100%;
+    left: 0px;
+    position: absolute;
 }
-.hero-section-image{
-  
-    position:absolute;
-    left:0px;
-    bottom:80px;
-} 
-.work-services-title{
+
+
+.hero-section-image {
+    position: absolute;
+    left: 0px;
+    bottom: 80px;
+}
+
+.work-services-title {
     max-width: 300px;
 }
-.work-section-container{
-padding-bottom: 2rem;
+
+.work-section-container {
+    padding-bottom: 2rem;
 }
-.border-1-px{
+
+.border-1-px {
     border: 1px solid white;
 }
 
@@ -68,14 +82,60 @@ padding-bottom: 2rem;
 /*
 Start of Services  We Offer style
 */
-.services-we-offer,.services-inner-container{
-height: 100vh;
+.services-we-offer,
+.services-inner-container {
+    height: 100vh;
 }
-.bg-container-color{
-background-color: var(--third-color);
+
+.bg-container-color {
+    background-color: var(--third-color);
+}
+
+.services-sub-title,
+.preparation-title {
+    font-size: 1rem;
+}
+
+.services-we-offer-description,
+.preparation-description,.inteeresting-description  {
+    font-size: 0.8rem;
+}
+
+.description-color {
+    color: #a1a1a1;
+}
+
+.card-bg-color {
+    background-color: #eff3fc;
+}
+
+.services-we-offer-description {
+    max-width: 300px;
+}
+
+.text-black {
+    color: black;
+}
+
+.card-border-1-px {
+
+    border: 1px solid #6d84ad;
 }
 
 
-/*
-end of Services  We Offer style
-*/
+
+/*Start Reviews and Preperation Style */
+.prepare-and-reviews {
+    height: auto;
+}
+
+/* End Reviews and Preperation Style */
+
+
+/*Start of footer style*/
+
+.nav-footer-container a{
+    font-size: 12px;
+}
+
+/*End of footer style*/
