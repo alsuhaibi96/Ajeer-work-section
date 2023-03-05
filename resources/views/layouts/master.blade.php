@@ -2,10 +2,11 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    @livewireStyles
    <!--Load The  meta tags section-->
    @include('partials.meta-tags')
     <title> @yield('title')</title>
- 
+
     <!--Load The  styles -->
     @include('partials.styles')
 
@@ -15,10 +16,10 @@
     @yield('head-extra')
 </head>
 <body>
-
+    @livewireScripts
     <!--Load The  content  -->
-  @yield('content')  
-    
+  @yield('content')
+
 {{-- footer in the body --}}
 @section('body-footer')
 @include('partials.footer')
@@ -28,6 +29,6 @@
        @section('footer-scripts')
 @include('partials.footer-scripts')
 @show
-    
+
 </body>
 </html>

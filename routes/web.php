@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+/* The customized controller for CMS*/
+use App\Http\Controllers\CMS\MainPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
+/** All CMS Routes */
+Route::get('/',[MainPageController::class,'index']);
+// Route::get('/',[HeroSectionController::class,'index']);
+// Route::get('/',[ServicesController::class,'index']);
+// Route::get('/',[PrepareAndOrganizeController::class,'index']);
+// Route::get('/',[PackagesController::class,'index']);
+// Route::get('/',[FooterController::class,'index']);
+
+
+
