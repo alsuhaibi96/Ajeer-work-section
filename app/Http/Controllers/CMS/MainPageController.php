@@ -12,10 +12,7 @@ use App\Models\ServicesText;
 use App\Models\PreparationSection;
 use App\Models\pricingPackages;
 use App\Models\callToAction;
-use App\Models\footerAbout;
-use App\Models\footerAddress;
-use App\Models\footerPolicy;
-use App\Models\footerServices;
+
 
 use function PHPUnit\Framework\isNull;
 
@@ -29,9 +26,20 @@ class MainPageController extends Controller
         //return the services texts and images to the view
         $serviceTexts=ServicesText::select('title','sub_title','description')->first();
         $serviceImages=ServicesImages::select('service_img','service_label')->get();
-//  if($serviceImages.)
-//  return count($serviceImages;
 
-        return view('index',compact('heroSection','serviceTexts','serviceImages'));
+
+         //return the prepration section to the view
+         $preperationSection=PreparationSection::select('title','sub_title','description','main_img','sub_img_one','sub_img_two','sub_img_three')->first();
+
+
+         //return packages and prices to the view
+         $packagesSection=pricingPackages::select('title','price','currency','period','feature_one','feature_two','feature_three','feature_four','feature_five','feature_six','subscribe_label')->get();
+
+         //return call to action section to the view
+        $callToActionSection=callToAction::select('title','description','button_label')->first();
+
+
+
+         return view('index',compact('heroSection','serviceTexts','serviceImages','preperationSection','packagesSection','callToActionSection'));
     }
 }

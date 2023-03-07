@@ -183,30 +183,36 @@ End of Services  We Offer Section
 <!--Preperations and Reviews-->
 
 <section>
+@if(isset($preperationSection))
+
   <div class="prepare-and-reviews  bg-white pt-5">
       <div class="col-11 col-lg-6  m-auto d-flex flex-column text-center pt-3">
-          <h4 class="fw-bold fs-2">    تجهيز وتنظيم</h4>
-          <h5 class="preparation-title mt-1 fw-light fs-5"> خدمات مختلفة </h5>
+          <h4 class="fw-bold fs-2">  {{$preperationSection->title}}</h4>
+          <h5 class="preparation-title mt-1 fw-light fs-5"> {{$preperationSection->sub_title}}</h5>
           <p class="preparation-description    description-color mt-3 fs-6">
-             يوجد 5000 + تقييمات حيث أن عملائنا يثقون بجودة خدماتنا وتميزها.
-             <br>
-             جودة عمل واستمرار في تقديم حلول مختلفة وحديثة.
+            {!! $preperationSection->description !!}
 
           </p>
 
-          <img class="mt-5 fix-lamp-image img-fluid" src="../assets/images/backlight-adjustment-man-with-screwdriver-hanging-wall-twisting-adjusting-lighting.jpg" alt="Fix House Services">
+          <img class="mt-5 fix-lamp-image img-fluid" src="{{asset('storage/'.$preperationSection->main_img)}}" alt="Fix House Services">
 
 
           <div class="thumbnails-container row mt-5 col-12 m-auto">
-<img class="col-5 col-lg-3  m-auto  img-thumbnail review-image-width" src="../assets/images/electrician-is-mounting-electric-sockets-white-wall-indoors.jpg" alt="Electronics Service">
-<img class="col-5  col-lg-3 m-auto  mx-1 mx-lg-2 img-thumbnail review-image-width" src="../assets/images/part-male-construction-worker.jpg" alt="Constr uctionService">
-<img class="col-6  col-lg-3 m-auto  mt-2 img-thumbnail review-image-width" src="../assets/images/cheerful-asian-male-janitor-walking-into-hotel-room-carrying-supplies-bucket.jpg" alt="Janitor Service">
+<img class="col-5 col-lg-3  m-auto  img-thumbnail review-image-width" src="{{asset('storage/'.$preperationSection->sub_img_one)}}" alt="Electronics Service">
+<img class="col-5  col-lg-3 m-auto  mx-1 mx-lg-2 img-thumbnail review-image-width" src="{{asset('storage/'.$preperationSection->sub_img_two)}}" alt="Constr uctionService">
+<img class="col-6  col-lg-3 m-auto  mt-2 img-thumbnail review-image-width" src="{{asset('storage/'.$preperationSection->sub_img_three)}}" alt="Janitor Service">
 
           </div>
 
       </div>
 
   </div>
+@else
+<div class="alert alert-danger">
+    يجب عليك اضافة محتوى التجهيزات من لوحة التحكم
+</div>
+
+  @endif
 </section>
 
 <!--End  Preperations and Reviews-->
@@ -234,6 +240,9 @@ End of Services  We Offer Section
 
           <!--BLOCK ROW START-->
           <div class="row">
+            @if(isset($packagesSection))
+            @foreach ($packagesSection as $item )
+
               <div class="col-md-4">
 
                   <!--PRICE CONTENT START-->
@@ -248,7 +257,7 @@ End of Services  We Offer Section
                               <!--HEAD START-->
                               <div class="head_bg"></div>
                               <div class="head">
-                                  <span class="text-black">الخطة الاساسية</span>
+                                  <span class="text-black">{!! $item->title!!} </span>
                               </div>
                               <!--//HEAD END-->
 
@@ -258,10 +267,10 @@ End of Services  We Offer Section
                           <!--PRICE START-->
                           <div class="generic_price_tag clearfix">
                               <span class="price">
-                                  <span class="sign">ريال</span>
-                                  <span class="currency">1115</span>
+                                  <span class="sign">{!! $item->cureency!!}</span>
+                                  <span class="currency">{!! $item->price!!}</span>
                                   <span class="cent"></span>
-                                  <span class="month">/سنويا</span>
+                                  <span class="month">/{!! $item->period!!}</span>
                               </span>
                           </div>
                           <!--//PRICE END-->
@@ -272,18 +281,18 @@ End of Services  We Offer Section
                       <!--FEATURE LIST START-->
                       <div class="generic_feature_list">
                           <ul>
-                              <li><span>الدخول</span>  على منصة الأعمال لإدارة العمليات</li>
-                              <li><span>5</span> فروع</li>
-                              <li><span>توفير</span>  أفضل الفنيين المدربين</li>
-                              <li><span>30</span> يوم من ضمان الخدمة </li>
-                              <li><span>1</span> مستخدم للنظام</li>
+                              <li><span>{!! $item->feature_one!!}</li>
+                              <li><span>{!! $item->feature_two!!}</li>
+                              <li><span>{!! $item->feature_three!!}</li>
+                              <li><span>{!! $item->feature_four!!}</li>
+                              <li><span>{!! $item->feature_five!!}</li>
                           </ul>
                       </div>
                       <!--//FEATURE LIST END-->
 
                       <!--BUTTON START-->
                       <div class="generic_price_btn clearfix">
-                          <a class="" href="">اشتراك </a>
+                          <a class="" href="">{{$item->subscribe_label}} </a>
                       </div>
                       <!--//BUTTON END-->
 
@@ -291,124 +300,14 @@ End of Services  We Offer Section
                   <!--//PRICE CONTENT END-->
 
               </div>
+              @endforeach
 
-              <div class="col-md-4">
-
-                  <!--PRICE CONTENT START-->
-                  <div class="generic_content active clearfix card-border-1-px"  >
-
-                      <!--HEAD PRICE DETAIL START-->
-                      <div class="generic_head_price clearfix" >
-
-                          <!--HEAD CONTENT START-->
-                          <div class="generic_head_content clearfix" >
-
-                              <!--HEAD START-->
-                              <div class="head_bg" ></div>
-                              <div class="head" >
-                                  <span class="text-black " >خطـة النخبـة</span>
-                              </div>
-                              <!--//HEAD END-->
-
-                          </div>
-                          <!--//HEAD CONTENT END-->
-
-                          <!--PRICE START-->
-                          <div class="generic_price_tag clearfix">
-                              <span class="price">
-                                  <span class="sign">ريال</span>
-                                  <span class="currency">6690</span>
-                                  <span class="cent"></span>
-                                  <span class="month">/سنوياََ</span>
-                              </span>
-                          </div>
-                          <!--//PRICE END-->
-
-                      </div>
-                      <!--//HEAD PRICE DETAIL END-->
-
-                      <!--FEATURE LIST START-->
-                      <div class="generic_feature_list">
-                          <ul>
-                              <li><span></span> </li>
-
-                              <li><span>جميع</span>  ما تشمله الخطـة الأساسيـة</li>
-                              <li><span>توفير</span>  مدير علاقة لإدارة الحساب</li>
-                              <li><span>10</span> فروع </li>
-                              <li><span>3</span> مستخدمين</li>
-                              <li><span></span> </li>
-
-                          </ul>
-                      </div>
-                      <!--//FEATURE LIST END-->
-
-                      <!--BUTTON START-->
-                      <div class="generic_price_btn clearfix">
-                          <a class="" href="">اشترك </a>
-                      </div>
-                      <!--//BUTTON END-->
-
-                  </div>
-                  <!--//PRICE CONTENT END-->
-
+              @else
+              <div class="alert alert-danger">
+يجب عليك اضافة محتوى باقات الاشتراك من لوحة التحكم
               </div>
-              <div class="col-md-4">
+              @endif
 
-                  <!--PRICE CONTENT START-->
-                  <div class="generic_content clearfix card-border-1-px">
-
-                      <!--HEAD PRICE DETAIL START-->
-                      <div class="generic_head_price clearfix">
-
-                          <!--HEAD CONTENT START-->
-                          <div class="generic_head_content clearfix">
-
-                              <!--HEAD START-->
-                              <div class="head_bg"></div>
-                              <div class="head">
-                                  <span class="text-black ">الخطة الماسية</span>
-                              </div>
-                              <!--//HEAD END-->
-
-                          </div>
-                          <!--//HEAD CONTENT END-->
-
-                          <!--PRICE START-->
-                          <div class="generic_price_tag clearfix">
-                              <span class="price">
-                                  <span class="sign">ريال</span>
-                                  <span class="currency">11.150</span>
-                                  <span class="cent"></span>
-                                  <span class="month">/سنويا</span>
-                              </span>
-                          </div>
-                          <!--//PRICE END-->
-
-                      </div>
-                      <!--//HEAD PRICE DETAIL END-->
-
-                      <!--FEATURE LIST START-->
-                      <div class="generic_feature_list">
-                          <ul>
-                              <li><span>جميع</span>  ما تشمله باقة النخبة</li>
-                              <li><span>عدد</span>  لا محدود من المستخدمين الفرعيين</li>
-                              <li><span>عدد</span>  لا محدود من الفروع</li>
-                              <li><span>ميزة</span>  سير الموافقات الآلية </li>
-                              <li><span>تقارير </span> تقارير شهرية وتسعيرات مجانية</li>
-                          </ul>
-                      </div>
-                      <!--//FEATURE LIST END-->
-
-                      <!--BUTTON START-->
-                      <div class="generic_price_btn clearfix">
-                          <a class="" href="">اشتراك </a>
-                      </div>
-                      <!--//BUTTON END-->
-
-                  </div>
-                  <!--//PRICE CONTENT END-->
-
-              </div>
           </div>
           <!--//BLOCK ROW END-->
 
@@ -420,26 +319,25 @@ End of Services  We Offer Section
 
 
 <!--Start of the call to Action Button-->
-@if(isset($callToAction))
-@foreach ( $callToAction as $item )
+@if(isset($callToActionSection))
 
 <section>
   <div class="prepare-and-reviews  bg-white pt-5 pb-5">
       <div class="col-11 col-lg-6  m-auto d-flex flex-column text-center pt-3">
 
-          <h4 class="fw-bolder fs-2 mb-3">   {{ $ $item[0]->title }}</h4>
+          <h4 class="fw-bolder fs-2 mb-3">   {{ $callToActionSection->title }}</h4>
 
 
 
-              {!! html_entity_decode($ $item[0]->description) !!}
+              {!! $callToActionSection->description!!}
 
 
-          <a class="btn bg-secondary-color mt-4 text-white col-6 col-lg-4 col-md-4 p-lg-3 p-2 px-4 m-auto" href="tel:00967775474720">إتصل بنا</a>
+          <a class="btn bg-secondary-color mt-4 text-white col-6 col-lg-4 col-md-4 p-lg-3 p-2 px-4 m-auto" href="tel:00967775474720"> {{$callToActionSection->button_label}}</a>
 
       </div>
       </div>
       </section>
-      @endforeach
+
 
       @else
       <div class="alert alert-danger">
